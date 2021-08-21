@@ -1,4 +1,4 @@
-# NestJS API
+# NestJS Validation
 
 # Installation
 
@@ -12,14 +12,14 @@ npm start
 Retrieve value from GET request, with only typechecking
 
 ```sh
-curl http://localhost:3000/test/get-basic?query=1
+curl http://localhost:3000/test/get-basic\?query\=1
 ```
 
 Validate value from GET request
 All values passed from query string are actually strings, so it has to be transformed first
 
 ```sh
-curl http://localhost:3000/test/get-simple?query=1
+curl http://localhost:3000/test/get-simple\?query\=1
 ```
 
 Validate value from POST request, sent using simple html form
