@@ -1,0 +1,18 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  basic(query: Int!): Float!
+  simple(input: TestBasicType!): Float!
+  custom(input: TestCustomType!): Float!
+  customWithInjection(input: TestCustomType!): Float!
+}
+
+input TestBasicType {
+  query: Float!
+}
+
+input TestCustomType {
+  query: Float!
+}
