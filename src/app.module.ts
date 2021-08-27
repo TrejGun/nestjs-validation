@@ -18,6 +18,9 @@ import { ValidationModule } from "./validation/validation.module";
     },
   ],
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: `.env`,
+    }),
     GraphQLModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

@@ -26,8 +26,4 @@ export class TestService {
       },
     ]);
   }
-
-  public isValid(value: unknown) {
-    return !!value;
-  }
 }
