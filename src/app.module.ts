@@ -41,4 +41,4 @@ import { ValidationModule } from "./validation/validation.module";
     ValidationModule,
   ],
 })
-export class ApplicationModule {}
+export class AppModule {}

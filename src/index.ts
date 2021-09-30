@@ -2,15 +2,15 @@ import { NestFactory } from "@nestjs/core";
 import { ConfigService } from "@nestjs/config";
 import { useContainer } from "class-validator";
 
-import { ApplicationModule } from "./app.module";
+import { AppModule } from "./app.module";
 
 async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(ApplicationModule);
+  const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService);
 
   // this is required by CustomValidatorWithInjection
-  useContainer(app.select(ApplicationModule), { fallbackOnErrors: true });
+  useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
   const host = configService.get<string>("HOST", "localhost");
   const port = configService.get<number>("PORT", 3000);
