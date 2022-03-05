@@ -25,10 +25,10 @@ import { ValidationModule } from "./validation/validation.module";
     GraphQLModule.forRootAsync<ApolloDriverConfig>({
       imports: [ConfigModule],
       inject: [ConfigService],
+      driver: ApolloDriver,
       useFactory: (configService: ConfigService): ApolloDriverConfig => {
         const nodeEnv = configService.get<string>("NODE_ENV", "development");
         return {
-          driver: ApolloDriver,
           debug: nodeEnv !== "production",
           playground: nodeEnv !== "production",
           context: ({ req, res }: { req: Request; res: Response }): any => ({ req, res }),

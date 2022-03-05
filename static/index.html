@@ -18,12 +18,12 @@
 
       document.getElementById("custom").addEventListener("click", e => {
         e.preventDefault();
-        socket.emit("basic", {query: 1}, console.log);
+        socket.emit("custom", {query: 2}, console.log);
       });
 
       document.getElementById("custom-with-injection").addEventListener("click", e => {
         e.preventDefault();
-        socket.emit("basic", {query: 1}, console.log);
+        socket.emit("custom-with-injection", {query: 3}, console.log);
       });
     });
 
