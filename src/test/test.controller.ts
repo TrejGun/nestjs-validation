@@ -9,8 +9,8 @@ export class TestController {
     return query;
   }
 
-  @Get("/get-simple")
-  public basicGet(@Query() dto: TestUrlencodedDto): number {
+  @Get("/get-urlencoded")
+  public basicPost(@Query() dto: TestUrlencodedDto): number {
     return dto.query;
   }
 

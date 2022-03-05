@@ -9,6 +9,8 @@ npm start
 
 ## REST
 
+Navigate to http://localhost:3000/swagger or use commandline
+
 Retrieve value from GET request, with only typechecking
 
 ```sh
@@ -19,7 +21,7 @@ Validate value from GET request
 All values passed from query string are actually strings, so it has to be transformed first
 
 ```sh
-curl http://localhost:3000/test/get-simple\?query\=1
+curl http://localhost:3000/test/get-urlencoded\?query\=1
 ```
 
 Validate value from POST request, sent using simple html form

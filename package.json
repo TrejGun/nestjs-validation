@@ -12,6 +12,7 @@
     "@nestjs/platform-express": "8.4.0",
     "@nestjs/platform-socket.io": "8.4.0",
     "@nestjs/serve-static": "2.2.2",
+    "@nestjs/swagger": "5.2.0",
     "@nestjs/websockets": "8.4.0",
     "apollo-server-express": "3.6.3",
     "class-transformer": "0.5.1",
@@ -22,6 +23,7 @@
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.4",
     "socket.io": "4.4.1",
+    "swagger-ui-express": "4.3.0",
     "type-graphql": "1.1.1"
   },
   "devDependencies": {
