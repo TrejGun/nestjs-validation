@@ -61,6 +61,8 @@ curl -v \
 
 ## GraphQL
 
+Navigate to http://localhost:3000/graphql
+
 Validate value using build in GraphQL type check
 
 ```gql
