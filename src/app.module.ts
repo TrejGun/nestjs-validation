@@ -1,8 +1,9 @@
 import { Module } from "@nestjs/common";
 import { APP_PIPE } from "@nestjs/core";
-import { GqlModuleOptions, GraphQLModule } from "@nestjs/graphql";
+import { GraphQLModule } from "@nestjs/graphql";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { ServeStaticModule } from "@nestjs/serve-static";
+import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 import { Request, Response } from "express";
 import { join } from "path";
 
@@ -21,12 +22,13 @@ import { ValidationModule } from "./validation/validation.module";
     ConfigModule.forRoot({
       envFilePath: `.env`,
     }),
-    GraphQLModule.forRootAsync({
+    GraphQLModule.forRootAsync<ApolloDriverConfig>({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService): GqlModuleOptions => {
+      useFactory: (configService: ConfigService): ApolloDriverConfig => {
         const nodeEnv = configService.get<string>("NODE_ENV", "development");
         return {
+          driver: ApolloDriver,
           debug: nodeEnv !== "production",
           playground: nodeEnv !== "production",
           context: ({ req, res }: { req: Request; res: Response }): any => ({ req, res }),
