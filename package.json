@@ -24,6 +24,7 @@
     "rxjs": "7.5.5",
     "socket.io": "4.5.0",
     "swagger-ui-express": "4.3.0",
+    "ts-mixer": "6.0.1",
     "type-graphql": "1.1.1"
   },
   "devDependencies": {

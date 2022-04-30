@@ -1,9 +1,14 @@
 import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 
-import { TestCustomDto, TestCustomWithInjectionDto, TestJsonDto, TestUrlencodedDto } from "./dto";
+import { TestCustomDto, TestCustomWithInjectionDto, TestJsonDto, TestUrlencodedDto, MixedDto } from "./dto";
 
 @Controller("/test")
 export class TestController {
+  @Get("/ts-mixer")
+  public tsmixer(@Query() query: MixedDto): any {
+    return query;
+  }
+
   @Get("/get-basic")
   public simple(@Query("query") query: number): number {
     return query;
