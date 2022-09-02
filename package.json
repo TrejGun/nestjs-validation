@@ -4,15 +4,15 @@
     "name": "TrejGun"
   },
   "dependencies": {
-    "@nestjs/apollo": "10.0.22",
+    "@nestjs/apollo": "10.1.0",
     "@nestjs/common": "9.0.11",
     "@nestjs/config": "2.2.0",
     "@nestjs/core": "9.0.11",
-    "@nestjs/graphql": "10.0.22",
+    "@nestjs/graphql": "10.1.0",
     "@nestjs/platform-express": "9.0.11",
     "@nestjs/platform-socket.io": "9.0.11",
     "@nestjs/serve-static": "3.0.0",
-    "@nestjs/swagger": "6.1.0",
+    "@nestjs/swagger": "6.1.1",
     "@nestjs/websockets": "9.0.11",
     "apollo-server-express": "3.10.2",
     "class-transformer": "0.5.1",
