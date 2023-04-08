@@ -29,7 +29,7 @@ import { ValidationModule } from "./validation/validation.module";
       useFactory: (configService: ConfigService): ApolloDriverConfig => {
         const nodeEnv = configService.get<string>("NODE_ENV", "development");
         return {
-          debug: nodeEnv !== "production",
+          includeStacktraceInErrorResponses: nodeEnv !== "production",
           playground: nodeEnv !== "production",
           context: ({ req, res }: { req: Request; res: Response }): any => ({ req, res }),
           autoSchemaFile: "./schema.gql",
