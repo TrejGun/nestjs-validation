@@ -4,7 +4,7 @@ import { ITest, TestRole } from "./interfaces";
 
 @Injectable()
 export class TestService {
-  public getList(): Promise<Array<ITest>> {
+  public getList(): Promise<ITest[]> {
     return Promise.resolve([
       {
         id: 1,
