@@ -4,5 +4,5 @@ export interface ITest {
   id: number;
   email: string;
   password: string;
-  roles: Array<TestRole>;
+  roles: TestRole[];
 }

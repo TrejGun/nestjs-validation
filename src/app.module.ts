@@ -1,3 +1,5 @@
+import { join } from "path";
+
 import { Module } from "@nestjs/common";
 import { APP_PIPE } from "@nestjs/core";
 import { GraphQLModule } from "@nestjs/graphql";
@@ -5,7 +7,6 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 import { Request, Response } from "express";
-import { join } from "path";
 
 import { TestModule } from "./test/test.module";
 import { HttpValidationPipe } from "./common/pipes";

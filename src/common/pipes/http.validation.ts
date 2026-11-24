@@ -10,7 +10,7 @@ import {
 export class HttpValidationPipe extends ValidationPipe {
   constructor(options?: ValidationPipeOptions) {
     super({
-      exceptionFactory: (errors: Array<ValidationError>): BadRequestException => new BadRequestException(errors),
+      exceptionFactory: (errors: ValidationError[]): BadRequestException => new BadRequestException(errors),
       transform: true,
       whitelist: true,
       forbidNonWhitelisted: true,

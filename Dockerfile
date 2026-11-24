@@ -4,10 +4,8 @@ WORKDIR /usr/src/app
 
 COPY package.json .npmrc ./
 
-# @ethberry/eslint-config comes from GitHub Packages and needs a token; linting is not part of the build.
 # --ignore-scripts skips husky (no .git here) and install-time telemetry.
-RUN npm pkg delete "devDependencies.@ethberry/eslint-config" \
- && npm install --ignore-scripts --no-audit --no-fund
+RUN npm install --ignore-scripts --no-audit --no-fund
 
 COPY tsconfig.json ./
 COPY src ./src
