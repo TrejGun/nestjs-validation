@@ -5,7 +5,8 @@
     "url": "https://ethberry.io/"
   },
   "dependencies": {
-    "@apollo/server": "4.13.0",
+    "@apollo/server": "5.5.2",
+    "@as-integrations/express5": "1.1.2",
     "@nestjs/apollo": "13.4.5",
     "@nestjs/common": "11.2.11",
     "@nestjs/config": "4.0.4",

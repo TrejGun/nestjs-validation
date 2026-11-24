@@ -1,5 +1,6 @@
 import {
   registerDecorator,
+  ValidationArguments,
   ValidationOptions,
   ValidatorConstraint,
   ValidatorConstraintInterface,
@@ -7,21 +8,17 @@ import {
 
 import { isValid } from "../utils/validate-query";
 
+// The constraint is a singleton shared by all requests, so it must not keep
+// per-validation state in fields: concurrent async validations would overwrite it.
+// The message is derived from args.value instead.
 @ValidatorConstraint({ async: true })
 export class CustomValidator implements ValidatorConstraintInterface {
-  private reason: string;
-
-  public async validate(value: unknown): Promise<boolean> {
-    this.reason = await this.isValid(value);
-    return !this.reason;
+  public validate(value: unknown): Promise<boolean> {
+    return Promise.resolve(!isValid(value));
   }
 
-  public defaultMessage(): string {
-    return this.reason;
-  }
-
-  private isValid(value: unknown): Promise<string> {
-    return Promise.resolve(isValid(value));
+  public defaultMessage(args: ValidationArguments): string {
+    return isValid(args.value);
   }
 }
 

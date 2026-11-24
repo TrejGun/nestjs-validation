@@ -1,6 +1,6 @@
 import { Args, Int, Query, Resolver } from "@nestjs/graphql";
 
-import { TestBasicType, TestCustomType } from "./types";
+import { TestBasicType, TestCustomType, TestCustomWithInjectionType } from "./types";
 
 @Resolver(() => Number)
 export class TestResolver {
@@ -20,7 +20,7 @@ export class TestResolver {
   }
 
   @Query(() => Number)
-  public customWithInjection(@Args("input") dto: TestCustomType): number {
+  public customWithInjection(@Args("input") dto: TestCustomWithInjectionType): number {
     return dto.query;
   }
 }
