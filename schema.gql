@@ -6,7 +6,7 @@ type Query {
   basic(query: Int!): Float!
   simple(input: TestBasicType!): Float!
   custom(input: TestCustomType!): Float!
-  customWithInjection(input: TestCustomType!): Float!
+  customWithInjection(input: TestCustomWithInjectionType!): Float!
 }
 
 input TestBasicType {
@@ -14,5 +14,9 @@ input TestBasicType {
 }
 
 input TestCustomType {
+  query: Float!
+}
+
+input TestCustomWithInjectionType {
   query: Float!
 }

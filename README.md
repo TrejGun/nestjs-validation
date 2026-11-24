@@ -47,7 +47,7 @@ Validate value using custom validator
 
 ```sh
 curl -v \
--X POST http://localhost:3000/test/custom-with-injection \
+-X POST http://localhost:3000/test/custom \
 -d '{"query": 1}' \
 -H "Content-Type: application/json"
 ```

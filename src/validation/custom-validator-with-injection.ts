@@ -1,30 +1,28 @@
 import {
   registerDecorator,
+  ValidationArguments,
   ValidationOptions,
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from "class-validator";
 import { Injectable } from "@nestjs/common";
+
 import { CustomValidatorService } from "../custom-validator/custom-validator.service";
 
+// The constraint is a singleton shared by all requests, so it must not keep
+// per-validation state in fields: concurrent async validations would overwrite it.
+// The message is derived from args.value instead.
 @Injectable()
 @ValidatorConstraint({ async: true })
 export class CustomValidatorWithInjection implements ValidatorConstraintInterface {
   constructor(private customValidatorService: CustomValidatorService) {}
 
-  private reason: string;
-
-  public async validate(value: unknown): Promise<boolean> {
-    this.reason = await this.isValid(value);
-    return !this.reason;
+  public validate(value: unknown): Promise<boolean> {
+    return this.customValidatorService.validate(value);
   }
 
-  public defaultMessage(): string {
-    return this.reason;
-  }
-
-  private isValid(value: unknown): Promise<string> {
-    return this.customValidatorService.isValid(value);
+  public defaultMessage(args: ValidationArguments): string {
+    return this.customValidatorService.getReason(args.value);
   }
 }
 
