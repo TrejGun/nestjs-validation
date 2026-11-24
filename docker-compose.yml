@@ -1,5 +1,3 @@
-version: "3"
-
 services:
 
   server:
@@ -9,7 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    command: npm start
     environment:
       NODE_ENV: development
       HOST: "0.0.0.0"
